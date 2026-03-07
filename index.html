@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Happy Women's Day</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(#ffc0cb,#ffd6e7);
+font-family:Arial;
+overflow:hidden;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.2);
+width:320px;
+}
+
+h1{
+color:#ff2e83;
+}
+
+button{
+padding:12px 25px;
+border:none;
+background:#ff4da6;
+color:white;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff1a8c;
+}
+
+.smallHeart{
+position:absolute;
+font-size:18px;
+animation:fly 1s forwards;
+}
+
+@keyframes fly{
+to{
+transform:translate(var(--x),var(--y));
+opacity:0;
+}
+}
+
+.bigHeart{
+font-size:120px;
+color:red;
+animation:pop 0.6s ease;
+}
+
+@keyframes pop{
+0%{transform:scale(0)}
+80%{transform:scale(1.2)}
+100%{transform:scale(1)}
+}
+
+.hidden{
+display:none;
+}
+
+.message{
+font-size:20px;
+margin-top:20px;
+color:#d6006b;
+text-align:center;
+line-height:1.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>Happy Women's Day 💖</h1>
+
+<button onclick="showHearts()">Nhận quà 🎁</button>
+
+<div id="heartContainer"></div>
+
+<div id="message" class="hidden message">
+<p>Chúc bạn 8/3 vui vẻ, hạnh phúc và càng ngày xinh đẹp hơn.</p>
+
+<p>🌸🌸🌸 💖 Chúc bạn luôn rạng rỡ 💖 🌸🌸🌸</p>
+</div>
+
+</div>
+
+<script>
+
+function showHearts(){
+
+const container=document.getElementById("heartContainer")
+
+for(let i=0;i<20;i++){
+
+let heart=document.createElement("div")
+heart.className="smallHeart"
+heart.innerHTML="💖"
+
+heart.style.left=(Math.random()*300-150)+"px"
+heart.style.top=(Math.random()*300-150)+"px"
+
+heart.style.setProperty("--x",(Math.random()*200-100)+"px")
+heart.style.setProperty("--y",(Math.random()*200-100)+"px")
+
+container.appendChild(heart)
+
+setTimeout(()=>heart.remove(),1000)
+
+}
+
+setTimeout(()=>{
+
+container.innerHTML='<div class="bigHeart">❤️</div>'
+
+document.getElementById("message").classList.remove("hidden")
+
+},1000)
+
+}
+
+</script>
+
+</body>
+</html>
