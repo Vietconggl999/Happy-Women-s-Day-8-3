@@ -12,22 +12,26 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(#ffc0cb,#ffd6e7);
+background:linear-gradient(#ffc6d9,#ffdbe8);
 font-family:Arial;
 overflow:hidden;
 }
 
+/* CARD */
+
 .card{
-background:white;
+background:#ffe6f0;
 padding:40px;
 border-radius:20px;
 text-align:center;
 box-shadow:0 10px 30px rgba(0,0,0,0.2);
-width:320px;
+width:330px;
+position:relative;
 }
 
 h1{
 color:#ff2e83;
+margin-bottom:10px;
 }
 
 button{
@@ -44,22 +48,19 @@ button:hover{
 background:#ff1a8c;
 }
 
+/* TIM NHỎ */
+
 .smallHeart{
 position:absolute;
-font-size:18px;
-animation:fly 1s forwards;
+font-size:20px;
+transition:all 1s ease;
 }
 
-@keyframes fly{
-to{
-transform:translate(var(--x),var(--y));
-opacity:0;
-}
-}
+/* TIM TO */
 
 .bigHeart{
 font-size:120px;
-color:red;
+margin-top:20px;
 animation:pop 0.6s ease;
 }
 
@@ -69,16 +70,13 @@ animation:pop 0.6s ease;
 100%{transform:scale(1)}
 }
 
-.hidden{
-display:none;
-}
+/* LỜI CHÚC */
 
 .message{
-font-size:20px;
-margin-top:20px;
+margin-top:15px;
 color:#d6006b;
-text-align:center;
-line-height:1.6;
+font-size:18px;
+display:none;
 }
 
 </style>
@@ -88,15 +86,16 @@ line-height:1.6;
 
 <div class="card">
 
-<h1>Happy Women's Day 💖</h1>
+<h1 id="title">Happy Women's Day 💖</h1>
 
-<button onclick="showHearts()">Nhận quà 🎁</button>
+<button onclick="startAnimation()">Nhận quà 🎁</button>
 
-<div id="heartContainer"></div>
+<div id="heartArea"></div>
 
-<div id="message" class="hidden message">
+<div id="bigHeart"></div>
+
+<div id="message" class="message">
 <p>Chúc Mai 8/3 vui vẻ, hạnh phúc và càng ngày xinh đẹp hơn.</p>
-
 <p>🌸 💖 Luôn luôn rạng rỡ 💖 🌸</p>
 </div>
 
@@ -104,35 +103,43 @@ line-height:1.6;
 
 <script>
 
-function showHearts(){
+function startAnimation(){
 
-const container=document.getElementById("heartContainer")
+const area=document.getElementById("heartArea")
+const big=document.getElementById("bigHeart")
 
-for(let i=0;i<20;i++){
+/* tạo tim quanh tiêu đề */
+
+for(let i=0;i<15;i++){
 
 let heart=document.createElement("div")
 heart.className="smallHeart"
 heart.innerHTML="💖"
 
-heart.style.left=(Math.random()*300-150)+"px"
-heart.style.top=(Math.random()*300-150)+"px"
+heart.style.left=(Math.random()*200-100)+"px"
+heart.style.top=(Math.random()*120-60)+"px"
 
-heart.style.setProperty("--x",(Math.random()*200-100)+"px")
-heart.style.setProperty("--y",(Math.random()*200-100)+"px")
+area.appendChild(heart)
 
-container.appendChild(heart)
+/* tụ vào giữa */
 
-setTimeout(()=>heart.remove(),1000)
+setTimeout(()=>{
+heart.style.left="0px"
+heart.style.top="60px"
+},50)
 
 }
 
+/* sau khi tụ lại */
+
 setTimeout(()=>{
 
-container.innerHTML='<div class="bigHeart">❤️</div>'
+area.innerHTML=""
+big.innerHTML="❤️"
 
-document.getElementById("message").classList.remove("hidden")
+document.getElementById("message").style.display="block"
 
-},1000)
+},1200)
 
 }
 
