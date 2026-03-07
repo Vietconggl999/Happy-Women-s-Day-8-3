@@ -1,149 +1,72 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Happy Women's Day</title>
-
-<style>
-
-body{
-margin:0;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(#ffc6d9,#ffdbe8);
-font-family:Arial;
-overflow:hidden;
-}
-
-/* CARD */
-
-.card{
-background:#ffe6f0;
-padding:40px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-width:330px;
-position:relative;
-}
-
-h1{
-color:#ff2e83;
-margin-bottom:10px;
-}
-
-button{
-padding:12px 25px;
-border:none;
-background:#ff4da6;
-color:white;
-font-size:18px;
-border-radius:10px;
-cursor:pointer;
-}
-
-button:hover{
-background:#ff1a8c;
-}
-
-/* TIM NHỎ */
-
-.smallHeart{
-position:absolute;
-font-size:20px;
-transition:all 1s ease;
-}
-
-/* TIM TO */
-
-.bigHeart{
-font-size:120px;
-margin-top:20px;
-animation:pop 0.6s ease;
-}
-
-@keyframes pop{
-0%{transform:scale(0)}
-80%{transform:scale(1.2)}
-100%{transform:scale(1)}
-}
-
-/* LỜI CHÚC */
-
-.message{
-margin-top:15px;
-color:#d6006b;
-font-size:18px;
-display:none;
-}
-
-</style>
-</head>
-
-<body>
-
-<div class="card">
-
-<h1 id="title">Happy Women's Day 💖</h1>
-
-<button onclick="startAnimation()">Nhận quà 🎁</button>
-
-<div id="heartArea"></div>
-
-<div id="bigHeart"></div>
-
-<div id="message" class="message">
-<p>Chúc Mai 8/3 vui vẻ, hạnh phúc và càng ngày xinh đẹp hơn.</p>
-<p>🌸 💖 Luôn luôn rạng rỡ 💖 🌸</p>
-</div>
-
-</div>
-
 <script>
 
 function startAnimation(){
 
-const area=document.getElementById("heartArea")
-const big=document.getElementById("bigHeart")
+const card = document.querySelector(".card")
+const area = document.getElementById("heartArea")
+const big = document.getElementById("bigHeart")
 
-/* tạo tim quanh tiêu đề */
+const rect = card.getBoundingClientRect()
 
-for(let i=0;i<15;i++){
+/* tạo tim quanh card */
 
-let heart=document.createElement("div")
-heart.className="smallHeart"
-heart.innerHTML="💖"
+for(let i=0;i<20;i++){
 
-heart.style.left=(Math.random()*200-100)+"px"
-heart.style.top=(Math.random()*120-60)+"px"
+let heart = document.createElement("div")
+heart.className = "smallHeart"
+heart.innerHTML = "💖"
 
-area.appendChild(heart)
+heart.style.position = "fixed"
 
-/* tụ vào giữa */
+/* random quanh card */
+
+let side = Math.floor(Math.random()*4)
+
+if(side===0){ // trên
+heart.style.left = rect.left + Math.random()*rect.width + "px"
+heart.style.top = rect.top - 40 + "px"
+}
+
+if(side===1){ // dưới
+heart.style.left = rect.left + Math.random()*rect.width + "px"
+heart.style.top = rect.bottom + 40 + "px"
+}
+
+if(side===2){ // trái
+heart.style.left = rect.left - 40 + "px"
+heart.style.top = rect.top + Math.random()*rect.height + "px"
+}
+
+if(side===3){ // phải
+heart.style.left = rect.right + 40 + "px"
+heart.style.top = rect.top + Math.random()*rect.height + "px"
+}
+
+heart.style.transition="all 1s ease"
+
+document.body.appendChild(heart)
+
+/* bay vào giữa */
 
 setTimeout(()=>{
-heart.style.left="0px"
-heart.style.top="60px"
+
+heart.style.left = rect.left + rect.width/2 + "px"
+heart.style.top = rect.top + rect.height/2 + "px"
+
 },50)
 
 }
 
-/* sau khi tụ lại */
+/* tạo tim to */
 
 setTimeout(()=>{
 
-area.innerHTML=""
-big.innerHTML="❤️"
+big.innerHTML = "❤️"
 
 document.getElementById("message").style.display="block"
 
-},1200)
+},1100)
 
 }
 
 </script>
-
-</body>
-</html>
