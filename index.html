@@ -60,6 +60,12 @@ margin-top:20px;
 animation:beat 1s infinite;
 }
 
+@keyframes beat{
+0%{transform:scale(1)}
+50%{transform:scale(1.2)}
+100%{transform:scale(1)}
+}
+
 #message{
 display:none;
 margin-top:20px;
@@ -142,30 +148,30 @@ display:none;
 
 function startAnimation(){
 
-document.querySelector("button").disabled = true
+const area=document.getElementById("heartArea")
+const big=document.getElementById("bigHeart")
 
-let container = document.getElementById("heartContainer")
+/* tạo tim quanh tiêu đề */
 
-for(let i=0;i<20;i++){
+for(let i=0;i<15;i++){
 
-let heart = document.createElement("div")
-heart.innerHTML="❤️"
+let heart=document.createElement("div")
 heart.className="smallHeart"
+heart.innerHTML="💖"
 
-heart.style.top = Math.random()*100+"%"
-heart.style.left = Math.random()*100+"%"
+heart.style.left=(Math.random()*200-100)+"px"
+heart.style.top=(Math.random()*120-60)+"px"
 
-container.appendChild(heart)
-}
+area.appendChild(heart)
+
+/* tụ vào giữa */
 
 setTimeout(()=>{
-document.getElementById("bigHeart").style.display="block"
-document.getElementById("message").style.display="block"
-},2000)
+heart.style.left="0px"
+heart.style.top="60px"
+},50)
 
 }
-
-document.querySelector("button").disabled = true
 
 /* sau khi tụ lại */
 
