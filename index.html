@@ -99,8 +99,6 @@ display:none;
 <p>🌸 💖 Luôn luôn rạng rỡ 💖 🌸</p>
 </div>
 
-</div>
-
 #heartContainer{
 position:absolute;
 top:0;
@@ -136,30 +134,10 @@ display:none;
 margin-top:20px;
 font-size:18px;
 }
+
+</div>
+
 <script>
-
-function startAnimation(){
-
-let container = document.getElementById("heartContainer")
-
-for(let i=0;i<20;i++){
-
-let heart = document.createElement("div")
-heart.innerHTML="❤️"
-heart.className="smallHeart"
-
-heart.style.top = Math.random()*100+"%"
-heart.style.left = Math.random()*100+"%"
-
-container.appendChild(heart)
-}
-
-setTimeout(()=>{
-document.getElementById("bigHeart").style.display="block"
-document.getElementById("message").style.display="block"
-},2000)
-
-}
 
 function startAnimation(){
 
