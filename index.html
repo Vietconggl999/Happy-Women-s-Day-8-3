@@ -143,18 +143,68 @@ color:white;
 font-family:'Dancing Script', cursive;
 z-index:20;
 pointer-events:none;
+
+opacity:0;
+animation:fadeIn 3s ease forwards;
+}
+
+/* cinematic hiện chữ */
+
+@keyframes fadeIn{
+0%{
+opacity:0;
+transform:translate(-50%, -20px);
+}
+100%{
+opacity:1;
+transform:translate(-50%,0);
+}
 }
 
 .womensText h1{
 margin:0;
-font-size:48px;
+font-size:52px;
 color:#ff7aa8;
-text-shadow:0 0 10px #ff7aa8,0 0 20px #ff7aa8;
+text-shadow:0 0 10px #ff7aa8,0 0 25px #ff7aa8;
+
+animation:sparkle 2s infinite alternate;
 }
 
 .womensText p{
 margin:6px 0;
 font-size:22px;
+}
+
+/* lấp lánh */
+
+@keyframes sparkle{
+0%{
+text-shadow:0 0 8px #ff7aa8;
+}
+100%{
+text-shadow:0 0 20px #ff7aa8,0 0 40px #ff7aa8;
+}
+}
+
+/* trái tim */
+
+.heart{
+position:absolute;
+font-size:18px;
+color:#ff6fa5;
+animation:heartFly 3s linear forwards;
+pointer-events:none;
+}
+
+@keyframes heartFly{
+0%{
+opacity:1;
+transform:translateY(0) scale(0.8);
+}
+100%{
+opacity:0;
+transform:translateY(-120px) scale(1.4);
+}
 }
   
 </style>
@@ -358,6 +408,31 @@ setInterval(()=>{
 
 },700);
 
+function createHeart(){
+
+const heart = document.createElement("div");
+heart.className = "heart";
+heart.innerHTML = "💖";
+
+const text = document.querySelector(".womensText");
+const rect = text.getBoundingClientRect();
+
+let x = rect.left + Math.random()*rect.width;
+let y = rect.top + rect.height;
+
+heart.style.left = x + "px";
+heart.style.top = y + "px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},3000);
+
+}
+
+setInterval(createHeart,800);  
+  
 </script>
 
 </body>
