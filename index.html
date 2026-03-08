@@ -94,6 +94,11 @@ filter:blur(8px);
 z-index:10;
 pointer-events:none;
 }
+
+.flowerGlow{
+filter:drop-shadow(0 0 10px #ff9dc0)
+       drop-shadow(0 0 20px #ff9dc0);
+}
   
 </style>
 </head>
@@ -155,11 +160,26 @@ fill="#1f7a3f" transform="rotate(30 200 300)"/>
 
 <g transform="translate(200,150)">
 
-<ellipse cx="0" cy="-30" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="-35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
+<!-- cánh trái -->
+<ellipse cx="-22" cy="-20" rx="22" ry="34"
+fill="#ff9dc0"
+transform="rotate(-25)"/>
 
-<circle cx="0" cy="0" r="16" fill="#ffd166"/>
+<!-- cánh phải -->
+<ellipse cx="22" cy="-20" rx="22" ry="34"
+fill="#ff9dc0"
+transform="rotate(25)"/>
+
+<!-- cánh giữa -->
+<ellipse cx="0" cy="-45" rx="24" ry="48" fill="#ff9dc0"/>
+
+<!-- lõi trắng -->
+<ellipse cx="0" cy="-5" rx="18" ry="8"
+fill="#ffffff"/>
+
+<!-- lõi vàng -->
+<ellipse cx="0" cy="0" rx="14" ry="6"
+fill="#ffd166"/>
 
 </g>
 
