@@ -106,11 +106,11 @@ animation:grassMove 5s ease-in-out infinite;
 
 .ground{
 position:absolute;
-bottom:-240px;
+bottom:-260px;
 width:100%;
-height:160px;
-background:linear-gradient(to top,#020617 50%,transparent);
-filter:blur(18px);
+height:220px;
+background:linear-gradient(to top,#020617 60%,transparent);
+filter:blur(28px);
 z-index:10;
 pointer-events:none;
 }
@@ -133,6 +133,12 @@ filter:drop-shadow(0 0 10px #ff9dc0)
 <!-- CỎ -->
 <g class="grass">
 
+<!-- cụm trái xa -->
+<g class="grassTall">
+<path d="M150 400 Q140 330 130 230" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M160 400 Q150 340 140 260" stroke="#18c75a" stroke-width="4" fill="none" stroke-linecap="round"/>
+</g>
+
 <!-- cụm trái -->
 <g class="grassTall">
 <path d="M170 400 Q160 330 150 250" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
@@ -140,11 +146,23 @@ filter:drop-shadow(0 0 10px #ff9dc0)
 <path d="M170 400 Q190 340 210 280" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
 </g>
 
+<!-- cụm giữa trái -->
+<g class="grassTall">
+<path d="M185 400 Q180 330 170 240" stroke="#18c75a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M190 400 Q200 340 210 250" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
+</g>
+
 <!-- cụm giữa -->
 <g class="grassTall">
-<path d="M200 400 Q200 330 200 250" stroke="#18c75a" stroke-width="7" fill="none" stroke-linecap="round"/>
-<path d="M200 400 Q220 330 240 270" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M200 400 Q180 330 160 270" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M200 400 Q200 330 200 230" stroke="#18c75a" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M200 400 Q220 330 240 260" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M200 400 Q180 330 160 260" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
+</g>
+
+<!-- cụm giữa phải -->
+<g class="grassTall">
+<path d="M215 400 Q230 330 240 240" stroke="#18c75a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M220 400 Q240 340 260 250" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
 </g>
 
 <!-- cụm phải -->
@@ -156,8 +174,9 @@ filter:drop-shadow(0 0 10px #ff9dc0)
 
 <!-- cỏ thấp phía trước -->
 <g class="grassTall">
-<path d="M190 400 Q185 360 180 330" stroke="#18c75a" stroke-width="4" fill="none" stroke-linecap="round"/>
-<path d="M210 400 Q215 360 220 330" stroke="#22d36a" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M185 400 Q180 360 175 330" stroke="#22d36a" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M195 400 Q195 360 195 330" stroke="#18c75a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M205 400 Q210 360 215 330" stroke="#22d36a" stroke-width="4" fill="none" stroke-linecap="round"/>
 </g>
 
 </g>
