@@ -105,6 +105,27 @@ filter:drop-shadow(0 0 10px #ff9dc0)
 drop-shadow(0 0 20px #ff9dc0);
 }
 
+.firefly {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff799, #ffd700, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
 </style>
 </head>
 
@@ -217,6 +238,66 @@ drop-shadow(0 0 20px #ff9dc0);
 </svg>
 
 </div>
+
+<script>
+
+function createFirefly(){
+
+  const firefly = document.createElement("div");
+  firefly.className = "firefly";
+
+  document.body.appendChild(firefly);
+
+  // vị trí gần hoa
+  let startX = window.innerWidth / 2 + (Math.random()*120 - 60);
+  let startY = window.innerHeight / 2 + 80;
+
+  firefly.style.left = startX + "px";
+  firefly.style.top = startY + "px";
+
+  let x = startX;
+  let y = startY;
+
+  let vx = (Math.random() - 0.5) * 0.6;
+  let vy = -1 - Math.random()*1.5;
+
+  let life = 0;
+
+  function animate(){
+
+    life++;
+
+    x += vx;
+    y += vy;
+
+    firefly.style.left = x + "px";
+    firefly.style.top = y + "px";
+
+    firefly.style.opacity = 1 - life/120;
+
+    if(life < 120){
+      requestAnimationFrame(animate);
+    }else{
+      firefly.remove();
+    }
+
+  }
+
+  animate();
+}
+
+// tạo đom đóm liên tục
+setInterval(()=>{
+
+  let count = Math.random()*2 + 1;
+
+  for(let i=0;i<count;i++){
+    createFirefly();
+  }
+
+},800);
+
+</script>
 
 </body>
 </html>
