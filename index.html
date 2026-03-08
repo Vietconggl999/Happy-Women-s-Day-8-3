@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Flower Animation</title>
+<title>Flower Garden</title>
 
 <style>
 
@@ -14,7 +14,7 @@ justify-content:center;
 align-items:flex-end;
 overflow:hidden;
 
-/* nền trời sao */
+/* bầu trời sao */
 background:
 radial-gradient(2px 2px at 20px 30px,#fff,transparent),
 radial-gradient(2px 2px at 100px 80px,#fff,transparent),
@@ -22,71 +22,38 @@ radial-gradient(2px 2px at 200px 120px,#fff,transparent),
 radial-gradient(2px 2px at 300px 40px,#fff,transparent),
 radial-gradient(2px 2px at 400px 200px,#fff,transparent),
 radial-gradient(2px 2px at 500px 100px,#fff,transparent),
-radial-gradient(2px 2px at 600px 250px,#fff,transparent),
 #020617;
 
 background-size:800px 400px;
 }
 
 .scene{
-position:relative;
 width:600px;
-height:400px;
-
-/* phóng to gấp đôi */
+height:450px;
 transform:scale(2);
 transform-origin:bottom center;
 }
 
-.plant{
-position:absolute;
-bottom:-380px;
-width:200px;
-
-animation:
-grow 2s ease forwards,
-sway 4s ease-in-out infinite;
-transform-origin:bottom center;
-}
-
-.p1{left:60px;}
-.p2{left:200px; animation-delay:.8s;}
-.p3{left:340px; animation-delay:1.6s;}
-
-@keyframes grow{
-to{
-bottom:0;
-}
-}
-
 /* hoa đung đưa */
+.stem{
+transform-origin:bottom center;
+animation:sway 4s ease-in-out infinite;
+}
+
 @keyframes sway{
 0%{transform:rotate(-2deg)}
 50%{transform:rotate(2deg)}
 100%{transform:rotate(-2deg)}
 }
 
-.petal ellipse{
-transform-origin:100px 95px;
-animation:bloom .8s ease forwards;
-animation-delay:2.5s;
-transform:scale(0);
-}
-
-@keyframes bloom{
-to{
-transform:scale(1);
-}
-}
-
+/* cỏ mọc */
 .grass path{
-stroke-dasharray:200;
-stroke-dashoffset:200;
-animation:grassGrow 2s linear forwards;
-animation-delay:1s;
+stroke-dasharray:300;
+stroke-dashoffset:300;
+animation:grow 2s ease forwards;
 }
 
-@keyframes grassGrow{
+@keyframes grow{
 to{
 stroke-dashoffset:0;
 }
@@ -99,80 +66,89 @@ stroke-dashoffset:0;
 
 <div class="scene">
 
-<!-- plant 1 -->
-<svg viewBox="0 0 200 360" class="plant p1">
+<svg viewBox="0 0 400 420">
 
-<rect x="97" y="110" width="8" height="250" fill="#7a5532" rx="4"/>
-
-<ellipse cx="75" cy="230" rx="28" ry="14" fill="#1f7a3f" transform="rotate(-35 75 230)"/>
-<ellipse cx="125" cy="250" rx="28" ry="14" fill="#1f7a3f" transform="rotate(35 125 250)"/>
-
-<g class="petal">
-<ellipse cx="100" cy="65" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="135" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="65" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="115" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
-<ellipse cx="85" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
-</g>
-
-<circle cx="100" cy="95" r="16" fill="#ffd166"/>
-
+<!-- CỎ XUNG QUANH -->
 <g class="grass">
-<path d="M100 360 Q80 250 70 170" stroke="#1ecb5a" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M100 360 Q60 260 40 200" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
-<path d="M100 360 Q120 250 130 170" stroke="#1ecb5a" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+<path d="M200 400 Q170 280 160 180" stroke="#18c75a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M200 400 Q120 280 100 210" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M200 400 Q260 280 280 210" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M200 400 Q230 260 240 170" stroke="#18c75a" stroke-width="6" fill="none" stroke-linecap="round"/>
+
 </g>
 
-</svg>
+<!-- THÂN HOA TRÁI -->
+<g class="stem">
 
-<!-- plant 2 -->
-<svg viewBox="0 0 200 360" class="plant p2">
+<line x1="200" y1="400" x2="150" y2="220"
+stroke="#7a5532" stroke-width="8"/>
 
-<rect x="97" y="110" width="8" height="250" fill="#7a5532" rx="4"/>
+<ellipse cx="150" cy="230" rx="30" ry="14"
+fill="#1f7a3f" transform="rotate(-30 150 230)"/>
 
-<ellipse cx="75" cy="230" rx="28" ry="14" fill="#1f7a3f" transform="rotate(-35 75 230)"/>
-<ellipse cx="125" cy="250" rx="28" ry="14" fill="#1f7a3f" transform="rotate(35 125 250)"/>
+<ellipse cx="150" cy="260" rx="30" ry="14"
+fill="#1f7a3f" transform="rotate(30 150 260)"/>
 
-<g class="petal">
-<ellipse cx="100" cy="65" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="135" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="65" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="115" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
-<ellipse cx="85" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
+<!-- hoa -->
+<g transform="translate(150,200)">
+
+<ellipse cx="0" cy="-30" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="-35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
+
+<circle cx="0" cy="0" r="16" fill="#ffd166"/>
+
 </g>
 
-<circle cx="100" cy="95" r="16" fill="#ffd166"/>
-
-<g class="grass">
-<path d="M100 360 Q80 250 70 170" stroke="#1ecb5a" stroke-width="6" fill="none"/>
-<path d="M100 360 Q60 260 40 200" stroke="#22d36a" stroke-width="5" fill="none"/>
-<path d="M100 360 Q120 250 130 170" stroke="#1ecb5a" stroke-width="6" fill="none"/>
 </g>
 
-</svg>
+<!-- THÂN HOA GIỮA -->
+<g class="stem">
 
-<!-- plant 3 -->
-<svg viewBox="0 0 200 360" class="plant p3">
+<line x1="200" y1="400" x2="200" y2="180"
+stroke="#7a5532" stroke-width="8"/>
 
-<rect x="97" y="110" width="8" height="250" fill="#7a5532" rx="4"/>
+<ellipse cx="200" cy="250" rx="30" ry="14"
+fill="#1f7a3f" transform="rotate(-30 200 250)"/>
 
-<ellipse cx="75" cy="230" rx="28" ry="14" fill="#1f7a3f" transform="rotate(-35 75 230)"/>
-<ellipse cx="125" cy="250" rx="28" ry="14" fill="#1f7a3f" transform="rotate(35 125 250)"/>
+<ellipse cx="200" cy="300" rx="30" ry="14"
+fill="#1f7a3f" transform="rotate(30 200 300)"/>
 
-<g class="petal">
-<ellipse cx="100" cy="65" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="135" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="65" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
-<ellipse cx="115" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
-<ellipse cx="85" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
+<g transform="translate(200,160)">
+
+<ellipse cx="0" cy="-30" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="-35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
+
+<circle cx="0" cy="0" r="16" fill="#ffd166"/>
+
 </g>
 
-<circle cx="100" cy="95" r="16" fill="#ffd166"/>
+</g>
 
-<g class="grass">
-<path d="M100 360 Q80 250 70 170" stroke="#1ecb5a" stroke-width="6" fill="none"/>
-<path d="M100 360 Q60 260 40 200" stroke="#22d36a" stroke-width="5" fill="none"/>
-<path d="M100 360 Q120 250 130 170" stroke="#1ecb5a" stroke-width="6" fill="none"/>
+<!-- THÂN HOA PHẢI -->
+<g class="stem">
+
+<line x1="200" y1="400" x2="250" y2="220"
+stroke="#7a5532" stroke-width="8"/>
+
+<ellipse cx="250" cy="230" rx="30" ry="14"
+fill="#1f7a3f" transform="rotate(-30 250 230)"/>
+
+<ellipse cx="250" cy="260" rx="30" ry="14"
+fill="#1f7a3f" transform="rotate(30 250 260)"/>
+
+<g transform="translate(250,200)">
+
+<ellipse cx="0" cy="-30" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="-35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
+
+<circle cx="0" cy="0" r="16" fill="#ffd166"/>
+
+</g>
+
 </g>
 
 </svg>
