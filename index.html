@@ -206,6 +206,27 @@ opacity:0;
 transform:translateY(-120px) scale(1.4);
 }
 }
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+border-radius:50%;
+opacity:0.8;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+0%{
+opacity:0.3;
+transform:scale(0.8);
+}
+100%{
+opacity:1;
+transform:scale(1.3);
+}
+}  
   
 </style>
 </head>
@@ -432,6 +453,26 @@ heart.remove();
 }
 
 setInterval(createHeart,800);  
+
+function createStars(){
+
+for(let i=0;i<120;i++){   // số sao
+
+const star = document.createElement("div");
+star.className = "star";
+
+star.style.left = Math.random()*window.innerWidth + "px";
+star.style.top = Math.random()*window.innerHeight + "px";
+
+star.style.animationDelay = Math.random()*3 + "s";
+
+document.body.appendChild(star);
+
+}
+
+}
+
+createStars();
   
 </script>
 
