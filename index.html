@@ -28,10 +28,12 @@ background-size:800px 400px;
 }
 
 .scene{
+position:relative;
 width:600px;
-height:450px;
-transform:scale(2);
+height:400px;
+transform:scale(1.5);
 transform-origin:bottom center;
+filter:blur(0.3px);
 }
 
 /* hoa đung đưa */
@@ -59,12 +61,24 @@ stroke-dashoffset:0;
 }
 }
 
+.ground{
+position:absolute;
+bottom:-20px;
+width:100%;
+height:120px;
+background:linear-gradient(to top,#020617 40%,transparent);
+filter:blur(6px);
+pointer-events:none;
+}
+  
 </style>
 </head>
 
 <body>
 
 <div class="scene">
+
+<div class="ground"></div>
 
 <svg viewBox="0 0 400 420">
 
@@ -91,7 +105,7 @@ fill="#1f7a3f" transform="rotate(-30 150 230)"/>
 fill="#1f7a3f" transform="rotate(30 150 260)"/>
 
 <!-- hoa -->
-<g transform="translate(150,200)">
+<g transform="translate(120,200)">
 
 <ellipse cx="0" cy="-30" rx="30" ry="36" fill="#ff9dc0"/>
 <ellipse cx="35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
@@ -115,7 +129,7 @@ fill="#1f7a3f" transform="rotate(-30 200 250)"/>
 <ellipse cx="200" cy="300" rx="30" ry="14"
 fill="#1f7a3f" transform="rotate(30 200 300)"/>
 
-<g transform="translate(200,160)">
+<g transform="translate(200,150)">
 
 <ellipse cx="0" cy="-30" rx="30" ry="36" fill="#ff9dc0"/>
 <ellipse cx="35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
@@ -139,7 +153,7 @@ fill="#1f7a3f" transform="rotate(-30 250 230)"/>
 <ellipse cx="250" cy="260" rx="30" ry="14"
 fill="#1f7a3f" transform="rotate(30 250 260)"/>
 
-<g transform="translate(250,200)">
+<g transform="translate(290,200)">
 
 <ellipse cx="0" cy="-30" rx="30" ry="36" fill="#ff9dc0"/>
 <ellipse cx="35" cy="0" rx="30" ry="36" fill="#ff9dc0"/>
