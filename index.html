@@ -14,7 +14,6 @@ justify-content:center;
 align-items:center;
 overflow:hidden;
 
-/* bầu trời sao */
 background:
 radial-gradient(2px 2px at 20px 30px,#fff,transparent),
 radial-gradient(2px 2px at 100px 80px,#fff,transparent),
@@ -54,9 +53,7 @@ animation-delay:2s;
 }
 
 @keyframes flowerAppear{
-to{
-opacity:1;
-}
+to{opacity:1;}
 }
 
 .stem{
@@ -70,6 +67,7 @@ animation:sway 4s ease-in-out infinite;
 100%{transform:rotate(-2deg)}
 }
 
+/* animation cỏ mọc */
 .grass path{
 stroke-dasharray:300;
 stroke-dashoffset:300;
@@ -77,9 +75,23 @@ animation:grow 2s ease forwards;
 }
 
 @keyframes grow{
-to{
-stroke-dashoffset:0;
+to{stroke-dashoffset:0;}
 }
+
+/* animation cỏ đung đưa */
+.grassTall{
+transform-origin:bottom;
+animation:grassMove 5s ease-in-out infinite;
+}
+
+.grassTall:nth-child(2){animation-delay:1s;}
+.grassTall:nth-child(3){animation-delay:2s;}
+.grassTall:nth-child(4){animation-delay:0.5s;}
+
+@keyframes grassMove{
+0%{transform:rotate(-4deg)}
+50%{transform:rotate(4deg)}
+100%{transform:rotate(-4deg)}
 }
 
 .ground{
@@ -111,16 +123,32 @@ filter:drop-shadow(0 0 10px #ff9dc0)
 <!-- CỎ -->
 <g class="grass">
 
-<path d="M200 400 Q180 330 170 300" stroke="#18c75a" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M200 400 Q150 340 130 300" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
-<path d="M200 400 Q120 350 90 310" stroke="#18c75a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<!-- cụm trái -->
+<g class="grassTall">
+<path d="M170 400 Q160 330 150 250" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M170 400 Q140 340 120 270" stroke="#18c75a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M170 400 Q190 340 210 280" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
+</g>
 
-<path d="M200 400 Q220 330 230 300" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
-<path d="M200 400 Q250 340 270 300" stroke="#18c75a" stroke-width="5" fill="none" stroke-linecap="round"/>
-<path d="M200 400 Q280 350 310 310" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<!-- cụm giữa -->
+<g class="grassTall">
+<path d="M200 400 Q200 330 200 250" stroke="#18c75a" stroke-width="7" fill="none" stroke-linecap="round"/>
+<path d="M200 400 Q220 330 240 270" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M200 400 Q180 330 160 270" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
+</g>
 
-<path d="M200 400 Q190 340 185 305" stroke="#18c75a" stroke-width="4" fill="none" stroke-linecap="round"/>
-<path d="M200 400 Q210 340 215 305" stroke="#22d36a" stroke-width="4" fill="none" stroke-linecap="round"/>
+<!-- cụm phải -->
+<g class="grassTall">
+<path d="M230 400 Q250 330 260 250" stroke="#22d36a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M230 400 Q270 340 290 280" stroke="#18c75a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M230 400 Q210 340 200 280" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
+</g>
+
+<!-- cỏ thấp phía trước -->
+<g class="grassTall">
+<path d="M190 400 Q185 360 180 330" stroke="#18c75a" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M210 400 Q215 360 220 330" stroke="#22d36a" stroke-width="4" fill="none" stroke-linecap="round"/>
+</g>
 
 </g>
 
@@ -130,11 +158,9 @@ filter:drop-shadow(0 0 10px #ff9dc0)
 <line x1="200" y1="400" x2="140" y2="220"
 stroke="#7a5532" stroke-width="8"/>
 
-<!-- lá -->
 <ellipse cx="140" cy="260" rx="20" ry="10" fill="#1f7a3f" transform="rotate(-30 140 260)"/>
 <ellipse cx="165" cy="240" rx="20" ry="10" fill="#1f7a3f" transform="rotate(30 165 240)"/>
 
-<!-- hoa -->
 <g transform="translate(140,220)" class="flowerGlow">
 
 <ellipse cx="-22" cy="-20" rx="22" ry="34" fill="#ff9dc0" transform="rotate(-25)"/>
@@ -145,7 +171,6 @@ stroke="#7a5532" stroke-width="8"/>
 <ellipse cx="0" cy="0" rx="14" ry="6" fill="#ffd166"/>
 
 </g>
-
 </g>
 
 <!-- HOA GIỮA -->
@@ -167,7 +192,6 @@ stroke="#7a5532" stroke-width="8"/>
 <ellipse cx="0" cy="0" rx="14" ry="6" fill="#ffd166"/>
 
 </g>
-
 </g>
 
 <!-- HOA PHẢI -->
@@ -189,7 +213,6 @@ stroke="#7a5532" stroke-width="8"/>
 <ellipse cx="0" cy="0" rx="14" ry="6" fill="#ffd166"/>
 
 </g>
-
 </g>
 
 </svg>
