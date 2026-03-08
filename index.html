@@ -102,30 +102,41 @@ animation:grassMove 5s ease-in-out infinite;
 
 /* mặt đất */
 
+/* mặt đất */
+
 .ground{
 position:absolute;
-bottom:-30px;
+bottom:-20px;
 width:100%;
-height:120px;
+height:160px;
 
-background:linear-gradient(to top,#020617,transparent);
+background:linear-gradient(
+to top,
+#020617 0%,
+#020617 40%,
+rgba(2,6,23,0.8) 60%,
+transparent 100%
+);
 
-filter:blur(80px);
-opacity:0.8;
+filter:blur(60px);
+opacity:0.9;
 }
-
-/* sương */
 
 .groundMist{
 position:absolute;
 bottom:-10px;
 width:100%;
-height:120px;
+height:140px;
 
-background:radial-gradient(circle at center,#020617 0%,transparent 70%);
+background:radial-gradient(
+ellipse at center bottom,
+rgba(2,6,23,0.9) 0%,
+rgba(2,6,23,0.6) 40%,
+transparent 80%
+);
 
-filter:blur(90px);
-opacity:0.9;
+filter:blur(100px);
+opacity:0.8;
 }
 
 .flowerGlow{
