@@ -1,125 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>Happy Women's Day</title>
+<title>Flower Animation</title>
 
 <style>
-
 body{
 margin:0;
 height:100vh;
 display:flex;
 justify-content:center;
-align-items:center;
-background:linear-gradient(#ffc6d9,#ffdbe8);
-font-family:Arial;
+align-items:flex-end;
+background:#0f172a;
 overflow:hidden;
 }
 
-/* CARD */
-
-.card{
-background:#ffe6f0;
-padding:40px;
-border-radius:20px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
-width:330px;
+.scene{
 position:relative;
+width:600px;
+height:400px;
 }
 
-#heartContainer{
+.plant{
 position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
+bottom:-380px;
+width:200px;
+animation:grow 2s ease forwards;
 }
 
-.smallHeart{
-position:absolute;
-font-size:20px;
-animation:moveToCenter 2s forwards;
-}
+.p1{left:60px;}
+.p2{left:200px; animation-delay:.8s;}
+.p3{left:340px; animation-delay:1.6s;}
 
-@keyframes moveToCenter{
+@keyframes grow{
 to{
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-opacity:0;
+bottom:0;
 }
 }
 
-#bigHeart{
-font-size:80px;
-display:none;
-margin-top:20px;
-animation:beat 1s infinite;
+.petal ellipse{
+transform-origin:100px 95px;
+animation:bloom .8s ease forwards;
+animation-delay:2.5s;
+transform:scale(0);
 }
 
-@keyframes beat{
-0%{transform:scale(1)}
-50%{transform:scale(1.2)}
-100%{transform:scale(1)}
+@keyframes bloom{
+to{
+transform:scale(1);
+}
 }
 
-#message{
-display:none;
-margin-top:20px;
-font-size:18px;
+.grass path{
+stroke-dasharray:200;
+stroke-dashoffset:200;
+animation:grassGrow 2s linear forwards;
+animation-delay:1s;
 }
 
-h1{
-color:#ff2e83;
-margin-bottom:10px;
+@keyframes grassGrow{
+to{
+stroke-dashoffset:0;
 }
-
-button{
-padding:12px 25px;
-border:none;
-background:#ff4da6;
-color:white;
-font-size:18px;
-border-radius:10px;
-cursor:pointer;
-}
-
-button:hover{
-background:#ff1a8c;
-}
-
-/* TIM NHỎ */
-
-.smallHeart{
-position:absolute;
-font-size:20px;
-transition:all 1s ease;
-}
-
-/* TIM TO */
-
-.bigHeart{
-font-size:120px;
-margin-top:20px;
-animation:pop 0.6s ease;
-}
-
-@keyframes pop{
-0%{transform:scale(0)}
-80%{transform:scale(1.2)}
-100%{transform:scale(1)}
-}
-
-/* LỜI CHÚC */
-
-.message{
-margin-top:15px;
-color:#d6006b;
-font-size:18px;
-display:none;
 }
 
 </style>
@@ -127,66 +69,75 @@ display:none;
 
 <body>
 
-<div class="card">
+<div class="scene">
 
-<h1 id="title">Happy Women's Day 💖</h1>
+<!-- plant 1 -->
+<svg viewBox="0 0 200 360" class="plant p1">
 
-<button onclick="startAnimation()">Nhận quà 🎁</button>
+<rect x="97" y="110" width="8" height="250" fill="#7a5532" rx="4"/>
 
-<div id="heartArea"></div>
+<ellipse cx="75" cy="230" rx="28" ry="14" fill="#1f7a3f" transform="rotate(-35 75 230)"/>
+<ellipse cx="125" cy="250" rx="28" ry="14" fill="#1f7a3f" transform="rotate(35 125 250)"/>
 
-<div id="bigHeart"></div>
+<g class="petal">
+<ellipse cx="100" cy="65" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="135" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="65" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="115" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
+<ellipse cx="85" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
+</g>
 
-<div id="message" class="message">
-<p>Chúc Mai 8/3 vui vẻ, hạnh phúc và càng ngày xinh đẹp hơn.</p>
-<p>🌸 💖 Luôn luôn rạng rỡ 💖 🌸</p>
+<circle cx="100" cy="95" r="16" fill="#ffd166"/>
+
+<g class="grass">
+<path d="M100 360 Q80 250 70 170" stroke="#1ecb5a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M100 360 Q60 260 40 200" stroke="#22d36a" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M100 360 Q120 250 130 170" stroke="#1ecb5a" stroke-width="6" fill="none" stroke-linecap="round"/>
+</g>
+
+</svg>
+
+<!-- plant 2 -->
+<svg viewBox="0 0 200 360" class="plant p2">
+
+<rect x="97" y="110" width="8" height="250" fill="#7a5532" rx="4"/>
+
+<ellipse cx="75" cy="230" rx="28" ry="14" fill="#1f7a3f" transform="rotate(-35 75 230)"/>
+<ellipse cx="125" cy="250" rx="28" ry="14" fill="#1f7a3f" transform="rotate(35 125 250)"/>
+
+<g class="petal">
+<ellipse cx="100" cy="65" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="135" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="65" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="115" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
+<ellipse cx="85" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
+</g>
+
+<circle cx="100" cy="95" r="16" fill="#ffd166"/>
+
+</svg>
+
+<!-- plant 3 -->
+<svg viewBox="0 0 200 360" class="plant p3">
+
+<rect x="97" y="110" width="8" height="250" fill="#7a5532" rx="4"/>
+
+<ellipse cx="75" cy="230" rx="28" ry="14" fill="#1f7a3f" transform="rotate(-35 75 230)"/>
+<ellipse cx="125" cy="250" rx="28" ry="14" fill="#1f7a3f" transform="rotate(35 125 250)"/>
+
+<g class="petal">
+<ellipse cx="100" cy="65" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="135" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="65" cy="95" rx="30" ry="36" fill="#ff9dc0"/>
+<ellipse cx="115" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
+<ellipse cx="85" cy="120" rx="28" ry="34" fill="#ff8fb5"/>
+</g>
+
+<circle cx="100" cy="95" r="16" fill="#ffd166"/>
+
+</svg>
+
 </div>
-
-</div>
-
-<script>
-
-function startAnimation(){
-
-const area=document.getElementById("heartArea")
-const big=document.getElementById("bigHeart")
-
-/* tạo tim quanh tiêu đề */
-
-for(let i=0;i<15;i++){
-
-let heart=document.createElement("div")
-heart.className="smallHeart"
-heart.innerHTML="💖"
-
-heart.style.left=(Math.random()*200-100)+"px"
-heart.style.top=(Math.random()*120-60)+"px"
-
-area.appendChild(heart)
-
-/* tụ vào giữa */
-
-setTimeout(()=>{
-heart.style.left="0px"
-heart.style.top="60px"
-},50)
-
-}
-
-/* sau khi tụ lại */
-
-setTimeout(()=>{
-
-area.innerHTML=""
-big.innerHTML="❤️"
-
-document.getElementById("message").style.display="block"
-
-},1200)
-
-}
-
-</script>
 
 </body>
 </html>
