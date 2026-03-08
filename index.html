@@ -263,8 +263,8 @@ function createFirefly(){
   // chọn ngẫu nhiên 1 bông
   const flower = flowers[Math.floor(Math.random()*flowers.length)];
 
-  let x = flower.x;
-  let y = flower.y;
+  let x = flower.x + (Math.random()-0.5)*20;
+let y = flower.y + 20;
 
   firefly.style.left = x + "px";
   firefly.style.top = y + "px";
