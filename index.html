@@ -253,9 +253,11 @@ function createFirefly(){
 
   document.body.appendChild(firefly);
 
-  // vị trí gần hoa
-  let startX = window.innerWidth / 2 + (Math.random()*120 - 60);
-  let startY = window.innerHeight / 2 + 80;
+  const scene = document.querySelector(".scene");
+  const rect = scene.getBoundingClientRect();
+
+  let startX = rect.left + rect.width/2 + (Math.random()*80 - 40);
+  let startY = rect.top + rect.height/2;
 
   firefly.style.left = startX + "px";
   firefly.style.top = startY + "px";
