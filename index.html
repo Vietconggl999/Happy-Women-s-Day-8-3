@@ -250,39 +250,43 @@ function createFirefly(){
 
   const firefly = document.createElement("div");
   firefly.className = "firefly";
-
   document.body.appendChild(firefly);
 
   const scene = document.querySelector(".scene");
   const rect = scene.getBoundingClientRect();
 
-  let startX = rect.left + rect.width/2 + (Math.random()*80 - 40);
-  let startY = rect.top + rect.height/2;
+  // vị trí 3 bông hoa
+  const flowers = [
+    {x: rect.left + rect.width/2 - 80, y: rect.top + rect.height/2 - 40},
+    {x: rect.left + rect.width/2, y: rect.top + rect.height/2 - 80},
+    {x: rect.left + rect.width/2 + 80, y: rect.top + rect.height/2 - 40}
+  ];
 
-  firefly.style.left = startX + "px";
-  firefly.style.top = startY + "px";
+  // chọn ngẫu nhiên 1 bông
+  const flower = flowers[Math.floor(Math.random()*flowers.length)];
 
-  let x = startX;
-  let y = startY;
+  let x = flower.x;
+  let y = flower.y;
 
-  let vx = (Math.random() - 0.5) * 0.6;
-  let vy = -1 - Math.random()*1.5;
+  firefly.style.left = x + "px";
+  firefly.style.top = y + "px";
 
-  let life = 0;
+  let vx = (Math.random() - 0.5) * 1;
+  let vy = -1.5 - Math.random()*1.5;
 
   function animate(){
-
-    life++;
 
     x += vx;
     y += vy;
 
+    // bay hơi zigzag
+    vx += (Math.random()-0.5)*0.05;
+
     firefly.style.left = x + "px";
     firefly.style.top = y + "px";
 
-    firefly.style.opacity = 1 - life/120;
-
-    if(life < 120){
+    // chỉ biến mất khi gần hết màn hình
+    if(y > -50){
       requestAnimationFrame(animate);
     }else{
       firefly.remove();
@@ -293,16 +297,17 @@ function createFirefly(){
   animate();
 }
 
+
 // tạo đom đóm liên tục
 setInterval(()=>{
 
-  let count = Math.random()*2 + 1;
+  let count = Math.random()*3 + 1;
 
   for(let i=0;i<count;i++){
     createFirefly();
   }
 
-},800);
+},700);
 
 </script>
 
